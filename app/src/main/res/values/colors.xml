@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="new_app_color">#00358F</color>
+    <color name="lanse">#2a78f1</color>
+    <color name="v3_font_l_content">#9E9E9E</color>
+    <color name="bg">#f1f2f6</color>
+    <color name="rad">#FF0000</color>
+
+    <!-- 主体文字,标题/标签 -->
+    <color name="txt_black">#333333</color>
+    <!-- 内容文字,正文 -->
+    <color name="txt_gray">#a3a3a3</color>
+    <!-- 辅助文字,提示 -->
+    <color name="txt_light_gray">#CCCCCC</color>
+    <!-- 背景色 -->
+    <color name="bg_white">#ffffff</color>
+    <!-- 按下灰色 -->
+    <color name="select_orange">#FF8240</color>
+    <!-- 分割线 -->
+    <color name="divider_gray_f0">#f0f0f0</color>
+    <!-- 分割线 -->
+    <color name="divider_gray_e7">#e7e7e7</color>
+    <!-- 分割线 -->
+    <color name="divider_gray_cb">#cbcbcb</color>
+    <color name="divider_gray_e6">#e6e6e6</color>
+    <!-- 重要下划线 -->
+    <color name="underline_main_gray">#b4b4b4</color>
+    <!-- 次要下划线 -->
+    <color name="underline_minor_gray">#f0f0f0</color>
+
+
+    <!-- 其他 -->
+    <color name="transparent">#00ffffff</color>
+
+    <!-- **************************pickerview选择器常用颜色值********************************** -->
+    <color name="pickerview_divider_color">#9D9D9D</color>
+    <color name="pickerview_cancel_text_color">#979696</color>
+    <color name="pickerview_submit_text_color">#1A78EC</color>
+    <color name="pickerview_title_text_color">#FF0000</color>
+    <color name="pickerview_center_text_color">#333333</color>
+</resources>

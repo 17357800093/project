@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dwkyanglao">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <application
+        android:name=".AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.activity2.GongxiangshezhiActivity"></activity>
+        <activity android:name=".activity.activity2.Pwsm2Activity" />
+        <activity android:name=".activity.activity2.Pwsm3Activity" />
+        <activity android:name=".activity.activity2.LanyapeizhiActivity" />
+        <activity android:name=".activity.activity2.LnayaliebiaoActivity" />
+        <activity android:name=".activity.activity2.GonxiangActivity" />
+        <activity android:name=".activity.activity2.YjinTzdActivity" />
+        <activity android:name=".activity.activity4.YzmActivity" />
+        <activity android:name=".activity.activity4.MimadlActivity" />
+        <activity android:name=".activity.activity2.Appjiaozhen2Activity" />
+        <activity android:name=".activity.activity2.SdjiaozhengActivity" />
+        <activity android:name=".activity.activity2.AppjiaozhengActivity" />
+        <activity android:name=".activity.activity2.SbjzActivity" />
+        <activity android:name=".activity.activity2.SbxxActivity" />
+        <activity android:name=".activity.activity2.SyznActivity" />
+        <activity android:name=".activity.activity2.ShebeiActivity" />
+        <activity android:name=".activity.activity2.PwsmActivity" />
+        <activity android:name=".activity.activity2.Xzsb2Activity" />
+        <activity android:name=".activity.activity2.XzsbActivity" />
+        <activity
+            android:name=".activity.activity4.SjhzcActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+        <activity android:name=".activity.activity4.WsgrxxActivity" />
+        <activity android:name=".activity.activity4.SzmmActivity" />
+        <activity android:name=".activity.activity4.ZhuceActivity"></activity>
+        <activity android:name=".activity.activity4.GuanyuActivity" />
+        <activity android:name=".activity.activity4.XgmmActivity" />
+        <activity android:name=".activity.activity4.SettingActivity" />
+        <activity android:name=".activity.activity4.GrzlActivity" />
+        <activity android:name=".activity.Main2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask" />
+    </application>
+
+</manifest>

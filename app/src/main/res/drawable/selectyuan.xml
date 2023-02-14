@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--选中状态-->
+    <item android:drawable="@drawable/yuan1" android:state_checked="true"/>
+    <item android:drawable="@drawable/yuan1" android:state_selected="true"/>
+    <item android:drawable="@drawable/yuan1" android:state_pressed="true"/>
+    <!--未选中状态-->
+    <item android:drawable="@drawable/yuan"/>
+</selector>

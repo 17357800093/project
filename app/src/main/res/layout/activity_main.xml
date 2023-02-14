@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity"
+    android:background="@color/bg">
+
+    <FrameLayout
+        android:id="@+id/id_fLayout_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/dibulayout"
+        android:paddingTop="10dp"
+        >
+        <RadioGroup
+            android:id="@+id/id_group"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/id_rbtn_1"
+                style="@style/tab_menu_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/id_group"
+                android:drawableTop="@drawable/selector_main_tab_icon1"
+                android:text="@string/tab_main_1" />
+
+            <RadioButton
+                android:id="@+id/id_rbtn_2"
+                style="@style/tab_menu_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/selector_main_tab_icon2"
+                android:text="@string/tab_main_2"
+                />
+            <RadioButton
+                android:id="@+id/id_rbtn_3"
+                style="@style/tab_menu_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/selector_main_tab_icon3"
+                android:text="@string/tab_main_3"
+                />
+            <RadioButton
+                android:id="@+id/id_rbtn_4"
+                style="@style/tab_menu_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/selector_main_tab_icon4"
+                android:text="@string/tab_main_4"
+                />
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+               <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></TextView>
+            <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+            android:layout_width="26dp"
+            android:layout_height="17dp"
+            android:background="@drawable/redyuan"
+            android:text="1"
+            android:textColor="@color/bg_white"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            />
+            </RelativeLayout>
+            </LinearLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
