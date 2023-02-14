@@ -3,6 +3,7 @@ package com.example.dwkyanglao.activity;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -42,6 +43,7 @@ public class MainActivity extends BaseActivity  implements RadioGroup.OnCheckedC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        Log.e("pp", "onCreate: ceshi" );
     }
 
     private void initView() {

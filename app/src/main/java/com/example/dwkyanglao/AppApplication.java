@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Application;
 import android.os.Bundle;
 
+import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 public class AppApplication extends Application {
@@ -13,5 +14,6 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
+        UtilsOKHttp.getInstance(getApplicationContext());
     }
 }

@@ -4,15 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.ConditionVariable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.dwkyanglao.R;
 import com.example.dwkyanglao.manage.BaseActivity;
+import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.utils.Utils;
+import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.github.lazylibrary.util.ToastUtils;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 public class SjhzcActivity extends BaseActivity {
 

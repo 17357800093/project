@@ -44,4 +44,6 @@ dependencies {
     implementation project(':FastBleLib')
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.github.danledian:SegmentedControl:1.0.5'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
 }
