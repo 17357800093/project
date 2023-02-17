@@ -41,6 +41,7 @@
             />
 
         <RelativeLayout
+            android:id="@+id/id_layout1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -58,7 +59,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv1"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="100"
@@ -80,6 +82,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/id_layout2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -97,7 +100,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv2"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="60"
@@ -119,6 +123,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/id_layout3"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -136,7 +141,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv3"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="5"
@@ -177,6 +183,7 @@
             />
 
         <RelativeLayout
+            android:id="@+id/id_layout4"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -194,7 +201,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv4"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="100"
@@ -216,6 +224,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/id_layout5"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -233,7 +242,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv5"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="60"
@@ -255,6 +265,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/id_layout6"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -272,7 +283,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv6"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="5"
@@ -312,6 +324,7 @@
             />
 
         <RelativeLayout
+            android:id="@+id/id_layout7"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/mylayout"
@@ -329,7 +342,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
-                <EditText
+                <TextView
+                    android:id="@+id/id_tv7"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:hint="10"

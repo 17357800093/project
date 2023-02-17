@@ -2,6 +2,7 @@ package com.example.dwkyanglao.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,13 @@ import androidx.annotation.Nullable;
 
 import com.dld.view.SegmentedControlItem;
 import com.example.dwkyanglao.R;
+import com.example.dwkyanglao.activity.model.SyYjModel;
 import com.example.dwkyanglao.manage.BaseFragment;
+import com.example.dwkyanglao.manage.Constant;
+import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.example.dwkyanglao.view.ProgressBarView;
 import com.example.dwkyanglao.view.SegmentedControlView;
+import com.google.gson.Gson;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
 
@@ -64,8 +69,21 @@ public class IndentFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         initadapter();
         initdata();
+        initYujin();
     }
 
+    private void initYujin() {
+        UtilsOKHttp.getInstance().get(Constant.URL_Warnlist, new UtilsOKHttp.OKCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("pp", "onSuccess列表: "+result );
+            }
+            @Override
+            public void onFail(String failResult) {
+
+            }
+        });
+    }
     private void initadapter() {
         commonAdapter = new CommonAdapter<String>(getActivity(), R.layout.xiaoxilayout, data) {
             @Override

@@ -161,5 +161,23 @@
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="150dp">
+            <Button
+                android:id="@+id/id_bt1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bt"
+                android:text="修改"
+                android:gravity="center"
+                android:textColor="@color/bg_white"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

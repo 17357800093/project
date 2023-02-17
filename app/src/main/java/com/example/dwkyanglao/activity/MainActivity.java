@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity  implements RadioGroup.OnCheckedC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        Log.e("pp", "onCreate: ceshi" );
     }
 
     private void initView() {

@@ -3,6 +3,7 @@ package com.example.dwkyanglao.activity.activity4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,16 +16,21 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.dwkyanglao.R;
 import com.example.dwkyanglao.activity.MainActivity;
+import com.example.dwkyanglao.activity.model.CodeMsgModel;
 import com.example.dwkyanglao.event.RefreshShouye;
 import com.example.dwkyanglao.manage.BaseActivity;
+import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.utils.DateTimeHelper;
+import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.github.lazylibrary.util.ToastUtils;
+import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class WsgrxxActivity extends BaseActivity {
@@ -75,7 +81,28 @@ public class WsgrxxActivity extends BaseActivity {
                 if(!CheckContent()){
                     return;
                 }
-                startActivity(new Intent(WsgrxxActivity.this, MainActivity.class));
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("birthDay",rq);
+                map.put("sex",xb.equals("男")?0:1);
+                map.put("height",Integer.parseInt(sg.substring(0,sg.length()-2)));
+                map.put("weight",Integer.parseInt(tz.substring(0,tz.length()-2)));
+                UtilsOKHttp.getInstance().put(Constant.URL_Userinfo, new Gson().toJson(map), new UtilsOKHttp.OKCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        CodeMsgModel codeMsgModel = new Gson().fromJson(result, CodeMsgModel.class);
+                        if(codeMsgModel!=null&&codeMsgModel.getCode()==0){
+                            ToastUtils.showToast(WsgrxxActivity.this,"设置成功！");
+                            startActivity(new Intent(WsgrxxActivity.this, MainActivity.class));
+                        }else if(codeMsgModel!=null&&codeMsgModel.getErrorMessage()!=null){
+                            ToastUtils.showToast(WsgrxxActivity.this,codeMsgModel.getErrorMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String failResult) {
+                        Log.e("pp", "failResult: "+failResult );
+                    }
+                });
             }
         });
 
@@ -245,7 +272,7 @@ public class WsgrxxActivity extends BaseActivity {
             @Override
             public void onTimeSelect(Date date, View v) {//选中事件回调
                 // 这里回调过来的v,就是show()方法里面所添加的 View 参数，如果show的时候没有添加参数，v则为null
-                 rq = DateTimeHelper.formatToString(date, "yyyy年MM月dd日");
+                 rq = DateTimeHelper.formatToString(date, "yyyy-MM-dd");
                 mIdTv2.setText(rq);
             }
         })

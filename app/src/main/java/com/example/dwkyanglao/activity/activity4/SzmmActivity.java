@@ -5,13 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.dwkyanglao.R;
+import com.example.dwkyanglao.activity.model.CodeMsgModel;
 import com.example.dwkyanglao.manage.BaseActivity;
+import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.utils.Utils;
+import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.github.lazylibrary.util.ToastUtils;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 public class SzmmActivity extends BaseActivity {
 
@@ -38,7 +45,25 @@ public class SzmmActivity extends BaseActivity {
                 if(!CheckContent()){
                     return;
                 }
-                startActivity(new Intent(SzmmActivity.this,WsgrxxActivity.class));
+                HashMap<String, String> map = new HashMap<>();
+                map.put("secret",mIdEt1.getText().toString());
+                UtilsOKHttp.getInstance().put(Constant.URL_passwordset, new Gson().toJson(map), new UtilsOKHttp.OKCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        CodeMsgModel codeMsgModel = new Gson().fromJson(result, CodeMsgModel.class);
+                        if(codeMsgModel!=null&&codeMsgModel.getCode()==0){
+                            ToastUtils.showToast(SzmmActivity.this,"设置成功！");
+                            startActivity(new Intent(SzmmActivity.this,WsgrxxActivity.class));
+                        }else if(codeMsgModel!=null&&codeMsgModel.getErrorMessage()!=null){
+                            ToastUtils.showToast(SzmmActivity.this,codeMsgModel.getErrorMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String failResult) {
+                        Log.e("pp", "failResult: "+failResult );
+                    }
+                });
             }
         });
     }

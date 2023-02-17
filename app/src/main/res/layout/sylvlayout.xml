@@ -4,10 +4,13 @@
     android:layout_height="40dp"
     android:paddingLeft="10dp"
     >
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/id_layout"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:background="@drawable/mylayout"
+        android:orientation="horizontal"
+        android:gravity="center"
         >
             <TextView
                 android:id="@+id/id_tv1"
@@ -16,6 +19,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textColor="@color/txt_black"
+
                 />
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/id_img"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

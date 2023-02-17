@@ -2,7 +2,9 @@ package com.example.dwkyanglao.activity.activity4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,13 +18,21 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.dwkyanglao.R;
+import com.example.dwkyanglao.activity.MainActivity;
+import com.example.dwkyanglao.activity.model.CodeMsgModel;
+import com.example.dwkyanglao.activity.model.GrzlModel;
 import com.example.dwkyanglao.manage.BaseActivity;
+import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.utils.DateTimeHelper;
+import com.example.dwkyanglao.utils.UtilsOKHttp;
+import com.github.lazylibrary.util.ToastUtils;
+import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class GrzlActivity extends BaseActivity {
@@ -54,6 +64,25 @@ public class GrzlActivity extends BaseActivity {
         for (int i = 10; i < 200; i++) {
             data4.add(i+"公斤");
         }
+
+        UtilsOKHttp.getInstance().get(Constant.URL_getuser, new UtilsOKHttp.OKCallback() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("pp", "onSuccess: "+result );
+                GrzlModel data = new Gson().fromJson(result, GrzlModel.class);
+                if(data!=null){
+                    mIdTv1.setText(data.getData().getSex()==0?"男":"女");
+                    mIdTv2.setText(data.getData().getBirthDay());
+                    mIdTv3.setText(data.getData().getHeight()+"厘米");
+                    mIdTv4.setText(data.getData().getWeight()+"公斤");
+                }
+            }
+
+            @Override
+            public void onFail(String failResult) {
+
+            }
+        });
     }
 
     private void initview() {
@@ -91,8 +120,36 @@ public class GrzlActivity extends BaseActivity {
                 initPicker4();
             }
         });
+        findViewById(R.id.id_bt1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("birthDay",mIdTv2.getText().toString());
+                map.put("sex",mIdTv1.getText().toString().equals("男")?0:1);
+                map.put("height",Integer.parseInt(mIdTv3.getText().toString().substring(0,mIdTv3.getText().toString().length()-2)));
+                map.put("weight",Integer.parseInt(mIdTv4.getText().toString().substring(0,mIdTv4.getText().toString().length()-2)));
+                UtilsOKHttp.getInstance().put(Constant.URL_Userinfo, new Gson().toJson(map), new UtilsOKHttp.OKCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        CodeMsgModel codeMsgModel = new Gson().fromJson(result, CodeMsgModel.class);
+                        if(codeMsgModel!=null&&codeMsgModel.getCode()==0){
+                            ToastUtils.showToast(GrzlActivity.this,"设置成功！");
+                            finish();
+                        }else if(codeMsgModel!=null&&codeMsgModel.getErrorMessage()!=null){
+                            ToastUtils.showToast(GrzlActivity.this,codeMsgModel.getErrorMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String failResult) {
+                        Log.e("pp", "failResult: "+failResult );
+                    }
+                });
+            }
+        });
     }
-    
+
+
     //性别
     private void initPicker1() {
         if(mPickerView1!=null){

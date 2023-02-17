@@ -121,10 +121,8 @@ public class LanyapeizhiActivity extends BaseActivity  implements Observer{
                             String s = DigitalTrans.byte2hex(data);
                             if(!s.isEmpty()&&s.equals("7B227769666920737461747573223A22636F6E6E6563746564227D0D0A")){
                                 Toast.makeText(LanyapeizhiActivity.this,"修改成功",Toast.LENGTH_LONG).show();
+
                             }
-                            Log.e("pp", "onCharacteristicChanged: "+s );
-                            String asciiStringToString = DigitalTrans.AsciiStringToString(s);
-                            Log.e("pp", "onCharacteristicChanged: "+asciiStringToString );
                         }
                     }
                 });

@@ -7,7 +7,7 @@
     android:background="@color/bg"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".activity.activity4.XgmmActivity">
+    tools:context=".activity.activity4.XgMcActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="修改密码"
+            android:text="修改昵称"
             android:layout_centerHorizontal="true"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -40,51 +40,11 @@
             android:id="@+id/id_et1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入老密码"
+            android:hint="请输入新昵称"
             android:textSize="11sp"
             android:background="@null"
-            android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
             android:layout_centerVertical="true"/>
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/id_layout2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/mylayout"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
-        android:padding="10dp">
-        <EditText
-            android:id="@+id/id_et2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="请输入新密码"
-            android:textSize="11sp"
-            android:background="@null"
-            android:inputType="textPassword"
-            android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
-            android:layout_centerVertical="true"/>
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/id_layout3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/mylayout"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
-        android:padding="10dp">
-        <EditText
-            android:id="@+id/id_et3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="确认新密码"
-            android:textSize="11sp"
-            android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
-            android:background="@null"
-            android:inputType="textPassword"
-            android:layout_centerVertical="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

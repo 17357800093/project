@@ -9,7 +9,14 @@ import android.util.Log;
 
 import com.example.dwkyanglao.manage.Constant;
 
+import org.json.JSONException;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -62,7 +69,7 @@ public class UtilsOKHttp {
         if (params != null && params.size() > 0) {
             url = makeGetUrl(url, params);
         }
-        Request request =  new Request.Builder().url(url).get().build();
+        Request request =  new Request.Builder().url(url).addHeader("authorization","Bearer "+Constant.TOKEN).get().build();
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -74,6 +81,7 @@ public class UtilsOKHttp {
             public void onResponse(Call call, final Response response) throws IOException {
                 if (response != null && response.isSuccessful()) {
                     String string = response.body().string();
+                    Log.e("pp", "onResponse: "+string );
                     onSuccessJsonStringMethod(string, callBack);
                 } else {
                     onFailJsonStringMethod("请求失败", callBack);
@@ -84,11 +92,42 @@ public class UtilsOKHttp {
 
 
     public void post(String url, String params, final OKCallback callBack) {
-        Log.e("phw", "post: "+url );
+        Log.e("pp", "post: "+url );
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), params);
-        Request request = new Request.Builder().url(url).post(requestBody).build();
+        Request request = new Request.Builder().url(url).addHeader("authorization","Bearer "+Constant.TOKEN).post(requestBody).build();
 
         //采用post方式提交
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                onFailJsonStringMethod("请求失败", callBack);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response != null && response.isSuccessful()) {
+
+                    onSuccessJsonStringMethod(response.body().string(), callBack);
+//                    if(Constant.COOKIE!=null&&Constant.COOKIE.isEmpty()){
+//                        String cook = response.headers().get("Set-Cookie");
+//                        if(cook!=null&&!cook.isEmpty()){
+//                            Constant.COOKIE=cook;
+//                        }
+//                    }
+                } else {
+                    onFailJsonStringMethod("请求失败", callBack);
+                    Log.e("pp", "onFailure:ww "+response.message() );
+
+                }
+            }
+        });
+    }
+    public void put(String url, String params, final OKCallback callBack) {
+        Log.e("pp", "put: "+url );
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), params);
+        Request request = new Request.Builder().url(url).addHeader("authorization","Bearer "+Constant.TOKEN).addHeader("Content-Type", "application/json").put(requestBody).build();
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -114,12 +153,11 @@ public class UtilsOKHttp {
             }
         });
     }
-    public void put(String url, String params, final OKCallback callBack) {
-        Log.e("phw", "put: "+url );
+    public void delete(String url, String params, final OKCallback callBack) {
+        Log.e("pp", "put: "+url );
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), params);
-        Request request = new Request.Builder().url(url).put(requestBody).build();
+        Request request = new Request.Builder().url(url).addHeader("authorization","Bearer "+Constant.TOKEN).addHeader("Content-Type", "application/json").delete().build();
 
-        //采用post方式提交
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -213,4 +251,5 @@ public class UtilsOKHttp {
         }
         return url;
     }
+
 }
