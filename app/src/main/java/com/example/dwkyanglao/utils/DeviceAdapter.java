@@ -91,7 +91,7 @@ public class DeviceAdapter extends BaseAdapter {
             holder = new ViewHolder();
             convertView.setTag(holder);
             holder.txt_name = (TextView) convertView.findViewById(R.id.txt_name);
-            holder.btn_connect = (Button) convertView.findViewById(R.id.btn_connect);
+            holder.btn_connect = (LinearLayout) convertView.findViewById(R.id.id_layout);
         }
 
         final BleDevice bleDevice = getItem(position);
@@ -118,7 +118,7 @@ public class DeviceAdapter extends BaseAdapter {
 
     class ViewHolder {
         TextView txt_name;
-        Button btn_connect;
+        LinearLayout btn_connect;
     }
 
     public interface OnDeviceClickListener {

@@ -24,11 +24,11 @@
             android:layout_height="wrap_content"
             android:text="睡眠报告"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
         <ImageView
-            android:id="@+id/id_share"
+            android:id="@+id/id_date"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/rili"
@@ -54,6 +54,7 @@
                     android:src="@mipmap/zjt"
                     />
                 <TextView
+                    android:id="@+id/id_tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2013年1月19日夜间睡眠"
@@ -67,6 +68,7 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/yjt"
                     android:layout_alignParentRight="true"
+                    android:visibility="invisible"
                     />
             </RelativeLayout>
 
@@ -76,7 +78,8 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal|bottom">
 
-                <TextView
+                <com.example.dwkyanglao.view.MyTextView
+                    android:id="@+id/id_tv_xs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6"
@@ -89,7 +92,8 @@
                     android:text="小时"
                     android:textColor="@color/txt_light_gray"
                     />
-                <TextView
+                <com.example.dwkyanglao.view.MyTextView
+                    android:id="@+id/id_tv_f"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="30"
@@ -150,22 +154,103 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/sleep1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="REM"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/sleep2"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="清醒"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/sleep3"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="浅睡"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/sleep4"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="深睡"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
                 android:background="@drawable/btjianbianhui"
                 android:layout_marginTop="30dp">
-                <TextView
+                <com.example.dwkyanglao.view.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="睡眠分析"
-                    android:textSize="15sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析睡眠分析"
-                    android:layout_marginTop="20dp"
                     />
             </LinearLayout>
 
@@ -173,7 +258,7 @@
                 android:id="@+id/id_pcchart"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="20dp"></com.github.mikephil.charting.charts.PieChart>
+                ></com.github.mikephil.charting.charts.PieChart>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -196,17 +281,18 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="75"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="bpm"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -226,7 +312,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=">"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -237,9 +323,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:text="过快"
+                        android:text="正常"
                         android:textColor="@color/bg_white"
-                        android:background="@drawable/btrad"
+                        android:background="@drawable/btlv"
                         android:gravity="center"
                         android:padding="3dp"
                         />
@@ -259,17 +345,18 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="25"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="bpm"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -289,7 +376,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=">"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -334,11 +421,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="4"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
 
                         </LinearLayout>
@@ -357,7 +445,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=">"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -390,17 +478,18 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="2"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="bpm"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -420,7 +509,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=">"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -465,11 +554,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="83%"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
 
                         </LinearLayout>
@@ -488,7 +578,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=">"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -514,11 +604,11 @@
                 </RelativeLayout>
             </LinearLayout>
 
-            <TextView
+            <com.example.dwkyanglao.view.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="心率"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 />
@@ -537,18 +627,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="12:00"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="18:00"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
                     android:text="00:00"/>
                 <TextView
                     android:layout_width="0dp"
@@ -562,6 +640,18 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="12:00"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="18:00"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="00:00"/>
             </LinearLayout>
 
             <LinearLayout
@@ -582,17 +672,18 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center">
-                            <TextView
+                            <com.example.dwkyanglao.view.MyTextView
+                                android:id="@+id/id_tv6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="75"
-                                android:textSize="18sp"
+                                android:textSize="22sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="bpm"
-                                android:textSize="11sp"
+                                android:textSize="14sp"
                                 android:textColor="@color/txt_light_gray"
                                 android:layout_marginLeft="5dp"
                                 />
@@ -615,17 +706,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-                        <TextView
+                        <com.example.dwkyanglao.view.MyTextView
+                            android:id="@+id/id_tv7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="56"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="bpm"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textColor="@color/txt_light_gray"
                             android:layout_marginLeft="5dp"
                             />
@@ -648,17 +740,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-                        <TextView
+                        <com.example.dwkyanglao.view.MyTextView
+                            android:id="@+id/id_tv8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="70"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="bpm"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textColor="@color/txt_light_gray"
                             android:layout_marginLeft="5dp"
                             />
@@ -672,11 +765,11 @@
             </LinearLayout>
 
 
-            <TextView
+            <com.example.dwkyanglao.view.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="呼吸率"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
                 />
@@ -695,18 +788,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="12:00"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="18:00"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
                     android:text="00:00"/>
                 <TextView
                     android:layout_width="0dp"
@@ -720,6 +801,18 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="12:00"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="18:00"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="00:00"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -739,17 +832,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-                        <TextView
+                        <com.example.dwkyanglao.view.MyTextView
+                            android:id="@+id/id_tv9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="35"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="bpm"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textColor="@color/txt_light_gray"
                             android:layout_marginLeft="5dp"
                             />
@@ -772,17 +866,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-                        <TextView
+                        <com.example.dwkyanglao.view.MyTextView
+                            android:id="@+id/id_tv10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="13"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="bpm"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textColor="@color/txt_light_gray"
                             android:layout_marginLeft="5dp"
                             />
@@ -805,17 +900,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center">
-                        <TextView
+                        <com.example.dwkyanglao.view.MyTextView
+                            android:id="@+id/id_tv11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="bpm"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textColor="@color/txt_light_gray"
                             android:layout_marginLeft="5dp"
                             />
@@ -832,9 +928,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="夜起记录"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp"
+                android:visibility="gone"
                 />
         </LinearLayout>
     </ScrollView>

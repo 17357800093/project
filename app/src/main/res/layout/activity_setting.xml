@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="设置"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
     </RelativeLayout>
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="修改密码"
             android:textStyle="bold"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
 
         <ImageView
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="消息推送"
             android:textStyle="bold"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <CheckBox
             android:id="@+id/id_tv2"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="清除缓存"
             android:textStyle="bold"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
 
         <ImageView

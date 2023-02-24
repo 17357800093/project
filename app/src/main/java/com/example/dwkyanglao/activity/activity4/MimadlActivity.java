@@ -55,6 +55,12 @@ public class MimadlActivity extends BaseActivity {
         mIdEt2 = ((EditText) findViewById(R.id.id_et2));
         mIdCb = ((CheckBox) findViewById(R.id.id_cb));
         mIdCbYan = ((CheckBox) findViewById(R.id.id_cb_yan));
+        findViewById(R.id.id_xieyi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MimadlActivity.this,XieyiActivity.class));
+            }
+        });
         mIdCbYan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -93,6 +99,7 @@ public class MimadlActivity extends BaseActivity {
                             zhMmSjModel.setTime(System.currentTimeMillis());
                             SharedPreferencesUtils.putString(MimadlActivity.this,"phone",new Gson().toJson(zhMmSjModel));
                             Constant.myself=codeMsgModel;
+                            Constant.TOKEN=codeMsgModel.getData().getToken();
                             ToastUtils.showToast(MimadlActivity.this,"登陆成功！");
                             startActivity(new Intent(MimadlActivity.this, MainActivity.class));
                         }else if(codeMsgModel!=null&&codeMsgModel.getErrorMessage()!=null){
@@ -110,7 +117,7 @@ public class MimadlActivity extends BaseActivity {
         findViewById(R.id.id_yzmdl).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MimadlActivity.this, SjhzcActivity.class));
+               finish();
             }
         });
 

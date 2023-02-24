@@ -7,6 +7,7 @@
     android:background="@color/bg"
     android:padding="20dp"
     android:orientation="vertical"
+    android:id="@+id/id_layout_game_main"
     tools:context=".activity.activity2.LanyapeizhiActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="配置信息"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
 
@@ -41,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="wifi账号名"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <EditText
             android:id="@+id/id_et1"
@@ -67,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="wifi密码"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <EditText
             android:id="@+id/id_et2"

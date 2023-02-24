@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".activity.activity4.YzmActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="验证"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         />
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="请输入您接收到的六位数短信验证码，并在下方输入"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:textColor="@color/txt_light_gray"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="150dp">
+        android:paddingBottom="60dp">
         <Button
             android:id="@+id/id_bt1"
             android:layout_width="match_parent"

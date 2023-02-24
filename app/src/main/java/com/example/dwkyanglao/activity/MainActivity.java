@@ -2,6 +2,7 @@ package com.example.dwkyanglao.activity;
 
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
@@ -11,6 +12,7 @@ import android.widget.RadioGroup;
 
 import com.example.dwkyanglao.R;
 import com.example.dwkyanglao.event.RefreshShouye;
+import com.example.dwkyanglao.event.RefreshYujin;
 import com.example.dwkyanglao.fragment.IndentFragment;
 import com.example.dwkyanglao.fragment.LiveListFragment;
 import com.example.dwkyanglao.fragment.MainFragment;
@@ -60,6 +62,29 @@ public class MainActivity extends BaseActivity  implements RadioGroup.OnCheckedC
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("pp", "onResume: " );
+        int num = getIntent().getIntExtra("num", 0);
+        if(num!=0){
+            switch (num){
+                case 1:
+                    mIdRbtn1.setChecked(true);
+                    break;
+                case 2:
+                    mIdRbtn2.setChecked(true);
+                    break;
+                case 3:
+                    mIdRbtn3.setChecked(true);
+                    break;
+                case 4:
+                    mIdRbtn4.setChecked(true);
+                    break;
+            }
+        }
+    }
+
+    @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         hideAllFragment(transaction);
@@ -87,6 +112,7 @@ public class MainActivity extends BaseActivity  implements RadioGroup.OnCheckedC
                 } else {
                     transaction.show(mIndentFragment);
                 }
+                EventBus.getDefault().post(new RefreshYujin(1));
                 break;
             case R.id.id_rbtn_4:
                 if (mMyFragment == null) {
@@ -120,6 +146,7 @@ public class MainActivity extends BaseActivity  implements RadioGroup.OnCheckedC
         // 如果两秒重置时间内再次点击返回,则退出程序
         if (mDoubleBackExitPressedOnce) {
             exit();
+            EventBus.getDefault().unregister(this);
             return;
         }
         mDoubleBackExitPressedOnce = true;

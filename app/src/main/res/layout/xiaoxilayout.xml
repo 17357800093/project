@@ -8,32 +8,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
+        <com.example.dwkyanglao.view.MyTextView
+            android:id="@+id/id_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="体征检测垫"
+            android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/id_tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(用户111)"
             android:textColor="@color/txt_light_gray"
             android:layout_marginLeft="10dp"
+            android:textSize="16sp"
             />
     </LinearLayout>
     <TextView
+        android:id="@+id/id_tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="持续心率过快"
         android:textColor="@color/txt_light_gray"
         android:layout_alignParentBottom="true"
+        android:textSize="16sp"
         />
     <TextView
+        android:id="@+id/id_tv4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2022/10/10 19:10:10"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:textColor="@color/txt_light_gray"
+        android:textSize="16sp"
         />
 </RelativeLayout>

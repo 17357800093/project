@@ -1,5 +1,7 @@
 package com.example.dwkyanglao.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +24,7 @@ import com.example.dwkyanglao.utils.SharedPreferencesUtils;
 
 
 /**
- * Created by Administrator on 2017-02-24.
+ * Created by Administrator on 2023-02-07
  * 我的
  */
 
@@ -62,9 +64,17 @@ public class MyFragment extends BaseFragment{
         rootView.findViewById(R.id.id_bt1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferencesUtils.clearAll(getActivity());
-                startActivity(new Intent(getActivity(), SjhzcActivity.class));
-                getActivity().finish();
+                new AlertDialog.Builder(getActivity())
+                        .setMessage("确定退出登录吗？")
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferencesUtils.putString(getContext(), "phone", "");
+                                startActivity(new Intent(getActivity(), SjhzcActivity.class));
+                                getActivity().finish();
+                            }
+                        }).create().show();
             }
         });
         rootView.findViewById(R.id.id_img_xiugai).setOnClickListener(new View.OnClickListener() {

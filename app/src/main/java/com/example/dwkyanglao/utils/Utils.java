@@ -4,12 +4,17 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
 import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -182,5 +187,109 @@ public class Utils {
             return true;
 
         }
+    }
+    /**
+     * 获取屏幕的宽度
+     *
+     * @param context
+     * @return
+     */
+    public static int getScreenWidth(Context context) {
+        WindowManager wm = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
+    }
+
+    /**
+     * 获取屏幕的高度
+     */
+    public static int getScreenHeight(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
+    }
+    public static long switchCreateTime(String createTime) {
+        long formatStr2 = 0;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");//注意格式化的表达式
+        try {
+            Date time = format.parse(createTime );
+            String date = time.toString();
+            //将西方形式的日期字符串转换成java.util.Date对象
+            SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", java.util.Locale.US);
+            Date datetime = (Date) sdf.parse(date);
+            //再转换成自己想要显示的格式
+            formatStr2 = datetime.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formatStr2+8*60*60*1000;
+    }
+    public static long switchCreateTime1(String createTime) {
+        long formatStr2 = 0;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//注意格式化的表达式
+        try {
+            Date time = format.parse(createTime );
+            formatStr2 = time.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formatStr2;
+    }
+    public static long switchCreateTime2(String createTime) {
+        long formatStr2 = 0;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");//注意格式化的表达式
+        try {
+            Date time = format.parse(createTime );
+            formatStr2 = time.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formatStr2;
+    }
+    public static String getDateTimeFromMillisecond(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return dateStr;
+    }
+    public static String getDateTimeFromMillisecond1(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return dateStr;
+    }
+    public static String getDateTimeFromMillisecond2(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return dateStr;
+    }
+    public static String getDateTime(int millisecond){
+        if(millisecond<60){
+            return millisecond+"分钟";
+        }else {
+            return millisecond/60+"小时"+millisecond%60+"分钟";
+        }
+    }
+    public static int getDateTimeY(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return Integer.parseInt(dateStr);
+    }
+    public static int getDateTimeM(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return Integer.parseInt(dateStr);
+    }
+    public static int getDateTimeD(Long millisecond){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");
+        Date date = new Date(millisecond);
+        String dateStr = simpleDateFormat.format(date);
+        return Integer.parseInt(dateStr);
     }
 }

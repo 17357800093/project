@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="个人资料"
                 android:layout_centerHorizontal="true"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 />
         </RelativeLayout>
@@ -46,14 +46,14 @@
                 android:layout_height="wrap_content"
                 android:text="性别"
                 android:textStyle="bold"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_centerVertical="true"/>
             <TextView
                 android:id="@+id/id_tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="女"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/txt_gray"
                 android:layout_marginRight="30dp"
@@ -78,14 +78,14 @@
                 android:layout_height="wrap_content"
                 android:text="生日"
                 android:textStyle="bold"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_centerVertical="true"/>
             <TextView
                 android:id="@+id/id_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1999年1月1日"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/txt_gray"
                 android:layout_marginRight="30dp"
@@ -110,14 +110,14 @@
                 android:layout_height="wrap_content"
                 android:text="身高"
                 android:textStyle="bold"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_centerVertical="true"/>
             <TextView
                 android:id="@+id/id_tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="165厘米"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/txt_gray"
                 android:layout_marginRight="30dp"
@@ -142,14 +142,14 @@
                 android:layout_height="wrap_content"
                 android:text="体重"
                 android:textStyle="bold"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_centerVertical="true"/>
             <TextView
                 android:id="@+id/id_tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="66公斤"
-                android:textSize="11sp"
+                android:textSize="14sp"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/txt_gray"
                 android:layout_marginRight="30dp"

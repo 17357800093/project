@@ -23,6 +23,8 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 
+import static android.content.Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT;
+
 public class SjhzcActivity extends BaseActivity {
 
     private EditText mIdEt1;
@@ -55,6 +57,7 @@ public class SjhzcActivity extends BaseActivity {
                             zhMmSjModel.setTime(System.currentTimeMillis());
                             SharedPreferencesUtils.putString(SjhzcActivity.this,"phone",new Gson().toJson(zhMmSjModel));
                             Constant.myself=codeMsgModel;
+                            Constant.TOKEN=codeMsgModel.getData().getToken();
                             ToastUtils.showToast(SjhzcActivity.this,"登陆成功！");
                             startActivity(new Intent(SjhzcActivity.this, MainActivity.class));
                         }
@@ -74,6 +77,12 @@ public class SjhzcActivity extends BaseActivity {
     private void initview() {
         mIdEt1 = ((EditText) findViewById(R.id.id_et1));
         mIdCb = ((CheckBox) findViewById(R.id.id_cb));
+        findViewById(R.id.id_xieyi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SjhzcActivity.this,XieyiActivity.class));
+            }
+        });
         findViewById(R.id.id_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

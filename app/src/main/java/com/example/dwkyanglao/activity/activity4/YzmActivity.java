@@ -61,6 +61,7 @@ public class YzmActivity extends BaseActivity implements SecurityCodeView.InputC
                         if(phoneLoginModel!=null&&phoneLoginModel.getCode()==0){
                             Constant.TOKEN=phoneLoginModel.getData().getToken();
                             if(phoneLoginModel.getData().getBirthDay()==null){
+                                Constant.myself=phoneLoginModel;
                                 startActivity(new Intent(YzmActivity.this,SzmmActivity.class));
                             }else {
                                 Constant.myself=phoneLoginModel;

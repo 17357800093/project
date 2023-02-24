@@ -27,10 +27,16 @@ public class Constant {
     public static String URL_DeviceConfig= TCP_HOST_NAMENEW + "/api/DeviceConfig";
     public static String URL_statisticsCount= TCP_HOST_NAMENEW + "/api/Warn/statisticsCount";
     public static String URL_Warnlist= TCP_HOST_NAMENEW + "/api/Warn/list";
+    public static String URL_Warnchartist= TCP_HOST_NAMENEW + "/api/Warn/chart/";
+    public static String URL_shareCode= TCP_HOST_NAMENEW + "/api/Share/shareCode";
+    public static String URL_sharedevice= TCP_HOST_NAMENEW + "/api/Share/device/";
+    public static String URL_SleepReport= TCP_HOST_NAMENEW + "/api/SleepReport/";
 
     public static String TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjdlOGU3MjI4LWQ2OWMtNDA2NC04ZDcxLWM1ZTIyNGE4MWQzZiIsImV4cCI6MTcwODA0NjQwNywiaXNzIjoiYmV3YXRlYyIsImF1ZCI6ImJld2F0ZWMifQ.hB5hHDBPnvT5GpxU1hQ6dRtzdia95v2Q4p03IyXCA_I";
     public static String mqttToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjdlOGU3MjI4LWQ2OWMtNDA2NC04ZDcxLWM1ZTIyNGE4MWQzZiIsImFjbCI6e30sImV4cCI6MTcwNzk2MjQ2Nn0.YT-E4sBu8MocK7TpTDH8O6LY_B-92R-ax5zEz3aq9eM";
 
     public static LoginModel myself;
+    public static String mCheckDeviceUri="";
     public static String TAG="pp";
+    public static int Devicetype;
 }

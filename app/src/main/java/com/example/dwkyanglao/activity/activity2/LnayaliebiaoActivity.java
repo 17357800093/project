@@ -290,4 +290,12 @@ public class LnayaliebiaoActivity extends BaseActivity {
             }
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BleManager.getInstance().cancelScan();
+        BleManager.getInstance().disconnectAllDevice();
+        BleManager.getInstance().destroy();
+    }
 }

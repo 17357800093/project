@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">医疗康复</string>
+    <string name="app_name">BEWATEC智慧康养</string>
     <string name="title_activity_base">BaseActivity</string>
 
     <string name="tab_main_1">首页</string>

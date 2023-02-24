@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".activity.activity4.WsgrxxActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="完善个人体征信息"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         />
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="性别"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:gravity="center_vertical"
             />
         <TextView
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="生日"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:gravity="center_vertical"
         />
     <TextView
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="身高"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:gravity="center_vertical"
             />
         <TextView
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="体重"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:gravity="center_vertical"
             />
         <TextView
@@ -118,7 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="150dp">
+        android:paddingBottom="60dp">
         <Button
             android:id="@+id/id_bt1"
             android:layout_width="match_parent"

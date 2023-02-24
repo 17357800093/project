@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".activity.activity2.GonxiangActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,16 +23,32 @@
             android:layout_height="wrap_content"
             android:text="分享设备"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/id_sdv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下载养老服务APP，打开扫一扫此二维码 即可共享该设备数据"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/txt_light_gray"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="20dp">
+        android:paddingBottom="60dp">
         <Button
             android:id="@+id/id_bt1"
             android:layout_width="match_parent"

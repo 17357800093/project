@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="修改密码"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
     </RelativeLayout>
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="请输入老密码"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:background="@null"
             android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
             android:layout_centerVertical="true"/>
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="请输入新密码"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:background="@null"
             android:inputType="textPassword"
             android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="确认新密码"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"
             android:background="@null"
             android:inputType="textPassword"

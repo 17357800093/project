@@ -338,14 +338,14 @@ public class MPChartUtils {
         set1.setValueTextColor(Color.WHITE);
         List<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < entries.size(); i++) {
-            if(entries.get(i).getY()==20){
-                list.add(Color.rgb(237, 201, 245));//设置颜色
+            if(entries.get(i).getY()==60){
+                list.add(Color.rgb(252, 128, 131));
+            }else if (entries.get(i).getY()==55){
+                list.add(Color.rgb(237, 201, 245));
             }else if (entries.get(i).getY()==40){
                 list.add(Color.rgb(197, 75, 227));
-            }else if (entries.get(i).getY()==60){
-                list.add(Color.rgb(130, 63, 240));
-            }else {
-                list.add(Color.rgb(252, 128, 131));
+            }else if (entries.get(i).getY()==80){
+                list.add(Color.rgb(130, 63, 240));//设置颜色
             }
         }
         set1.setColors(list);
@@ -375,12 +375,8 @@ public class MPChartUtils {
         chart.invalidate();
     }
 
-    public static void initPcchart(PieChart mChart){
-        List<PieEntry> entries=new ArrayList<>();
-        entries.add(new PieEntry(10, "REM  1小时10分钟"));
-        entries.add(new PieEntry(12, "清醒  10分钟"));
-        entries.add(new PieEntry(17, "浅睡  1小时40分钟"));
-        entries.add(new PieEntry(20, "深睡  1小时10分钟"));
+    public static void initPcchart(PieChart mChart,   List<PieEntry> entries){
+
 
         mChart.setUsePercentValues(true); //设置是否显示数据实体(百分比，true:以下属性才有意义)
         mChart.getDescription().setEnabled(false);
@@ -417,6 +413,7 @@ public class MPChartUtils {
         l.setXEntrySpace(7f); //设置图例实体之间延X轴的间距（setOrientation = HORIZONTAL有效）
         l.setYEntrySpace(10f); //设置图例实体之间延Y轴的间距（setOrientation = VERTICAL 有效）
         l.setYOffset(0f);//设置比例块Y轴偏移量
+        l.setTextSize(18);
 
         // entry label styling
         mChart.setEntryLabelColor(Color.WHITE);//设置pieChart图表文本字体颜色
@@ -433,10 +430,10 @@ public class MPChartUtils {
 
         // add a lot of colors
         List<Integer> list = new ArrayList<Integer>();
-                list.add(Color.rgb(237, 201, 245));//设置颜色
+        list.add(Color.rgb(252, 128, 131));
+        list.add(Color.rgb(237, 201, 245));//设置颜色
                 list.add(Color.rgb(197, 75, 227));
                 list.add(Color.rgb(130, 63, 240));
-                list.add(Color.rgb(252, 128, 131));
 
         dataSet.setColors(list);
 

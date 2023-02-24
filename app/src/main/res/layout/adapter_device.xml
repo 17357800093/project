@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:background="@drawable/bt1"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/id_layout">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,11 +18,11 @@
             android:layout_marginLeft="20dp"
             android:textSize="14sp" />
 
-        <Button
+        <TextView
             android:id="@+id/btn_connect"
             android:layout_width="60dp"
             android:layout_height="30dp"
-            android:background="@null"
+            android:gravity="center"
             android:textColor="@color/txt_light_gray"
             android:layout_alignParentRight="true"
             android:text="配置"

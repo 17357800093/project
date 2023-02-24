@@ -12,11 +12,14 @@ import com.example.dwkyanglao.R;
 import com.example.dwkyanglao.activity.model.CodeMsgModel;
 import com.example.dwkyanglao.activity.model.DeviceXQModel;
 import com.example.dwkyanglao.activity.model.DevicesModel;
+import com.example.dwkyanglao.event.Refreshshebei;
 import com.example.dwkyanglao.manage.BaseActivity;
 import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.github.lazylibrary.util.ToastUtils;
 import com.google.gson.Gson;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 
@@ -79,6 +82,8 @@ public class SbxxActivity extends BaseActivity {
                         CodeMsgModel devicesModel = new Gson().fromJson(result, CodeMsgModel.class);
                         if(devicesModel!=null&&devicesModel.getCode()==0){
                             ToastUtils.showToast(SbxxActivity.this,"修改成功");
+                            EventBus.getDefault().post(new Refreshshebei(1));
+                            finish();
                         }
                     }
 

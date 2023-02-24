@@ -173,6 +173,7 @@ public class YjinTzdActivity extends BaseActivity {
                         CodeMsgModel codeMsgModel = new Gson().fromJson(result, CodeMsgModel.class);
                         if(codeMsgModel!=null&&codeMsgModel.getCode()==0){
                             ToastUtils.showToast(YjinTzdActivity.this,"设置成功！");
+                            finish();
                         }else if(codeMsgModel!=null&&codeMsgModel.getErrorMessage()!=null){
                             ToastUtils.showToast(YjinTzdActivity.this,codeMsgModel.getErrorMessage());
                         }

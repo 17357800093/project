@@ -71,7 +71,7 @@ public class GrzlActivity extends BaseActivity {
                 Log.e("pp", "onSuccess: "+result );
                 GrzlModel data = new Gson().fromJson(result, GrzlModel.class);
                 if(data!=null){
-                    mIdTv1.setText(data.getData().getSex()==0?"男":"女");
+                    mIdTv1.setText(data.getData().getSex()==1?"男":"女");
                     mIdTv2.setText(data.getData().getBirthDay());
                     mIdTv3.setText(data.getData().getHeight()+"厘米");
                     mIdTv4.setText(data.getData().getWeight()+"公斤");
@@ -125,7 +125,7 @@ public class GrzlActivity extends BaseActivity {
             public void onClick(View v) {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("birthDay",mIdTv2.getText().toString());
-                map.put("sex",mIdTv1.getText().toString().equals("男")?0:1);
+                map.put("sex",mIdTv1.getText().toString().equals("男")?1:2);
                 map.put("height",Integer.parseInt(mIdTv3.getText().toString().substring(0,mIdTv3.getText().toString().length()-2)));
                 map.put("weight",Integer.parseInt(mIdTv4.getText().toString().substring(0,mIdTv4.getText().toString().length()-2)));
                 UtilsOKHttp.getInstance().put(Constant.URL_Userinfo, new Gson().toJson(map), new UtilsOKHttp.OKCallback() {

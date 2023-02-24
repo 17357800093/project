@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".activity.activity4.MimadlActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="密码登陆"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         />
@@ -89,8 +89,8 @@
             android:gravity="center">
             <CheckBox
                 android:id="@+id/id_cb"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:button="@null"
                 android:background="@drawable/selectyuan"
                 />
@@ -112,6 +112,7 @@
                         android:textSize="12sp"
                         />
                     <TextView
+                        android:id="@+id/id_xieyi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="《软件许可及服务协议》"
@@ -141,7 +142,7 @@
             android:gravity="center"
             android:textColor="@color/bg_white"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="40dp"
             />
         <TextView
             android:id="@+id/id_yzmdl"
@@ -151,6 +152,7 @@
             android:textColor="@color/txt_black"
             android:layout_gravity="center_horizontal"
             android:textSize="14sp"
+            android:layout_marginBottom="20dp"
             />
     </LinearLayout>
 </LinearLayout>

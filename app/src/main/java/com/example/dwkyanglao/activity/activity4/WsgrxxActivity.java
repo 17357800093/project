@@ -83,7 +83,7 @@ public class WsgrxxActivity extends BaseActivity {
                 }
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("birthDay",rq);
-                map.put("sex",xb.equals("男")?0:1);
+                map.put("sex",xb.equals("男")?1:2);
                 map.put("height",Integer.parseInt(sg.substring(0,sg.length()-2)));
                 map.put("weight",Integer.parseInt(tz.substring(0,tz.length()-2)));
                 UtilsOKHttp.getInstance().put(Constant.URL_Userinfo, new Gson().toJson(map), new UtilsOKHttp.OKCallback() {

@@ -20,12 +20,14 @@ import androidx.annotation.Nullable;
 
 import com.example.dwkyanglao.R;
 import com.example.dwkyanglao.activity.activity2.ShebeiActivity;
+import com.example.dwkyanglao.activity.activity2.WebActivity;
 import com.example.dwkyanglao.activity.activity2.XzsbActivity;
 import com.example.dwkyanglao.activity.activity4.SzmmActivity;
 import com.example.dwkyanglao.activity.activity4.WsgrxxActivity;
 import com.example.dwkyanglao.activity.model.CodeMsgModel;
 import com.example.dwkyanglao.activity.model.DeviceZuModel;
 import com.example.dwkyanglao.activity.model.DevicesModel;
+import com.example.dwkyanglao.event.Refreshshebei;
 import com.example.dwkyanglao.manage.BaseFragment;
 import com.example.dwkyanglao.manage.Constant;
 import com.example.dwkyanglao.manage.Popwindow;
@@ -33,8 +35,15 @@ import com.example.dwkyanglao.utils.Utils;
 import com.example.dwkyanglao.utils.UtilsOKHttp;
 import com.github.lazylibrary.util.ToastUtils;
 import com.google.gson.Gson;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageClickListener;
+import com.synnapps.carouselview.ImageListener;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,7 +51,7 @@ import java.util.List;
 
 
 /**
- * Created by Administrator on 2017-02-24.
+ * Created by Administrator on 2023-02-07.
  * 设备
  */
 
@@ -56,6 +65,9 @@ public class LiveListFragment extends BaseFragment {
     private GridView mIdGv;
     private CommonAdapter<DevicesModel.DataBean> commonAdapter;
     private List<DeviceZuModel.DataBean> mDeviceData=new ArrayList<>();
+    private int mSpinnerSelect=0;
+    private CarouselView carouselView;
+    private  int[] sampleImages = {R.mipmap.webviewimg, R.mipmap.webviewimg};
 
     @Override
     public int getContentViewId() {
@@ -75,6 +87,22 @@ public class LiveListFragment extends BaseFragment {
 
             }
         });
+        carouselView = ((CarouselView) rootView.findViewById(R.id.carouselView));
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+                imageView.setImageResource(sampleImages[position]);
+            }
+        });
+        carouselView.setImageClickListener(new ImageClickListener() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), WebActivity.class);
+                intent.putExtra("type",position+1);
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
 
@@ -87,16 +115,13 @@ public class LiveListFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initdata();
-
+        initDevice();
     }
 
-     @Override
-    public void onResume() {
-        super.onResume();
+    private void initDevice() {
         UtilsOKHttp.getInstance().get(Constant.URL_Devicelist, new UtilsOKHttp.OKCallback() {
             @Override
             public void onSuccess(String result) {
-                Log.e("pp", "onSuccess: "+result );
                 DeviceZuModel deviceZuModel = new Gson().fromJson(result, DeviceZuModel.class);
                 if(deviceZuModel!=null&&deviceZuModel.getData()!=null){
                     refreshDevice(deviceZuModel);
@@ -109,6 +134,7 @@ public class LiveListFragment extends BaseFragment {
             }
         });
     }
+
 
     private void refreshDevice(DeviceZuModel deviceZuModel) {
         mDeviceData.clear();
@@ -124,7 +150,6 @@ public class LiveListFragment extends BaseFragment {
             Sbdata.add("我的健康");
             adapter.notifyDataSetChanged();
         }
-        mIdSpinner.setSelection(0);
         if(mDeviceData.size()!=0){
             UtilsOKHttp.getInstance().get(Constant.URL_Group + mDeviceData.get(0).getId() + "/deviceList", new UtilsOKHttp.OKCallback() {
                 @Override
@@ -149,14 +174,19 @@ public class LiveListFragment extends BaseFragment {
         }
     }
 
+
     private void initdata() {
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
         adapter = new ArrayAdapter<String>(getActivity(), R.layout.textlayout, Sbdata);
-        adapter.setDropDownViewResource(R.layout.textlayout);
+        adapter.setDropDownViewResource(R.layout.textlayout1);
         mIdSpinner.setAdapter(adapter);
         mIdSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.e("pp", "onItemSelected: "+ mDeviceData.size());
+                mSpinnerSelect=position;
                 if(mDeviceData.size()!=0){
                     UtilsOKHttp.getInstance().get(Constant.URL_Group + mDeviceData.get(position).getId() + "/deviceList", new UtilsOKHttp.OKCallback() {
                         @Override
@@ -199,8 +229,14 @@ public class LiveListFragment extends BaseFragment {
                     name="防褥疮床垫";
                     img.setImageResource(R.mipmap.frcd);
                 }
-                viewHolder.setText(R.id.id_tv1,name);
-                viewHolder.setText(R.id.id_tv2,item.getName());
+                if(item.getName()==null||item.getName().isEmpty()){
+                    viewHolder.setText(R.id.id_tv1,name);
+                    viewHolder.setText(R.id.id_tv2,item.getUri());
+                }else {
+                    viewHolder.setText(R.id.id_tv1,item.getName());
+                    viewHolder.setText(R.id.id_tv2,"");
+                }
+
 
             }
         };
@@ -208,6 +244,9 @@ public class LiveListFragment extends BaseFragment {
         mIdGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(mSpinnerSelect!=0){
+                    return;
+                }
                 Intent intent = new Intent(getActivity(), ShebeiActivity.class);
                 intent.putExtra("id",mdata.get(position).getId());
                 intent.putExtra("type",mdata.get(position).getDeviceType());
@@ -215,5 +254,18 @@ public class LiveListFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true) //在ui线程执行
+    public void onEvent(Refreshshebei event) {
+        if(event!=null) {
+            initDevice();
+        }
     }
 }

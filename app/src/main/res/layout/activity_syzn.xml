@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="使用指南"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
 
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="绑定设备"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="按键及控制"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="图标介绍"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="预警提醒"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="设备设置和删除"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -146,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="检测睡眠"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <ImageView
             android:layout_width="wrap_content"

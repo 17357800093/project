@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="设备校正"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
 
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="APP校正"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
         <TextView
             android:layout_width="150dp"
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="手动校正"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="新增设备"
             android:layout_centerHorizontal="true"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
     </RelativeLayout>

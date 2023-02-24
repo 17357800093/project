@@ -25,7 +25,7 @@ public class Popwindow {
             pop_game_cj.setContentView(popupWindow_view);
             pop_game_cj.setOutsideTouchable(false);
             pop_game_cj.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
-            pop_game_cj.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+            pop_game_cj.setHeight(700);
             pop_game_cj.setFocusable(true);
         }
         return pop_game_cj;

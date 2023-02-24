@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".activity.activity4.SzmmActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="设置密码"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         />
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:background="@null"
             android:hint="请设置登陆密码"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:maxLength="16"
             android:textColorHint="@color/txt_light_gray"
             android:digits="1234567890qwertyuiopasdfghjklzxcvbnm"/>
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="密码必须是8-16位英文字母、数字组合（不能是纯数字）"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:textColor="@color/txt_light_gray"
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="150dp">
+        android:paddingBottom="60dp">
         <Button
             android:id="@+id/id_bt1"
             android:layout_width="match_parent"

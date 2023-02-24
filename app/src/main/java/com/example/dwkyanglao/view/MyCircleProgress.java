@@ -74,7 +74,7 @@ public class MyCircleProgress extends View {
         _paint.setStyle(Paint.Style.STROKE);
         //设置圆弧的宽度（圆环的宽度）
         _paint.setStrokeWidth(_arcWidth);
-        _paint.setColor(Color.GRAY);
+        _paint.setColor(Color.parseColor("#91b8fe"));
         //大圆的半径
         float bigCircleRadius = _width / 2;
         //小圆的半径
@@ -86,7 +86,8 @@ public class MyCircleProgress extends View {
         //绘制圆弧
         canvas.drawArc(_rectF, 90, _current * 360 / _max, false, _paint);
         //计算百分比
-        String txt = _current+ "分";
+        String txt = "";
+//        String txt = _current+ "分";
         _paint.setStrokeWidth(1);
         _paint.setTextSize(50);
         _paint.getTextBounds(txt, 0, txt.length(), _rect);

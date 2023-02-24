@@ -58,7 +58,16 @@ public class DevicesModel {
         private String mac;
         private String version;
         private int connected;
+        private int state;
         private boolean ischeck;
+
+        public int getState() {
+            return state;
+        }
+
+        public void setState(int state) {
+            this.state = state;
+        }
 
         public boolean isIscheck() {
             return ischeck;
